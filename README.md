@@ -51,19 +51,21 @@ API key configuration
 
 5. `amplify push`
 
-6. In AWS Console, create a Cognito user, marking the email as verified
+6. `amplify codegen models`
 
-7. Confirm the user using AWS CLI:
+7. In AWS Console, create a Cognito user, marking the email as verified
+
+8. Confirm the user using AWS CLI:
     1. If your AWS CLI credentials are not configured, do so with `aws configure`
     2. Run the following command, replacing the values with the ones from your environment: `aws cognito-idp admin-set-user-password --user-pool-id <YOUR_USER_POOL_ID> --username <COGNITO_USER_NAME (not email)> --password <COGNITO_USER_PASSWORD> --permanent`
 
-8. Create a user in AWS Console using AWS AppSync, passing the Cognito user name (not email) for the `id` field, any value for the `name`, and again the Cognito user name for the `owner`.
+9. Create a user in AWS Console using AWS AppSync, passing the Cognito user name (not email) for the `id` field, any value for the `name`, and again the Cognito user name for the `owner`.
 
-9. Run the app in Android Emulator or in an Android device in debug mode.
+10. Run the app in Android Emulator or in an Android device in debug mode.
 
-10. Enter the credentials for the user created in Cognito.
+11. Enter the credentials for the user created in Cognito.
 
-11. Observe what is printed in the console.
+12. Observe what is printed in the console.
 
 The login was tested 3 times for the same user. After each login, the app and the debugging session were closed, and the app's storage was cleared on Android Emulator. These were the results for the elapsed time for the query:
 
