@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-slowsyncdemo-dev-baaf2-authRole",
+      "UnauthRoleArn": "arn:aws:iam::150246323823:role/amplify-slowsyncdemo-dev-baaf2-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::150246323823:role/amplify-slowsyncdemo-dev-baaf2-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-slowsyncdemo-dev-baaf2-deployment",
+      "UnauthRoleName": "amplify-slowsyncdemo-dev-baaf2-unauthRole",
+      "StackName": "amplify-slowsyncdemo-dev-baaf2",
+      "StackId": "arn:aws:cloudformation:us-east-2:150246323823:stack/amplify-slowsyncdemo-dev-baaf2/1d94eac0-1dcb-11ef-8245-06b5f507cec5",
+      "AmplifyAppId": "dgp9klm0u3w2e"
+    },
+    "categories": {
+      "auth": {
+        "slowsyncdemo21fef8ee21fef8ee": {}
+      },
+      "api": {
+        "slowsyncdemo": {}
+      }
+    }
+  }
+}

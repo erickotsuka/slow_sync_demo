@@ -1,0 +1,17 @@
+type User 
+  @model
+  @auth(
+    rules: [
+      { allow: owner }
+      { allow: public, provider: apiKey }
+    ]
+  ) {
+  id: ID!
+  name: String!
+  owner: String @auth(
+    rules: [
+      { allow: owner, operations: [read] }
+      { allow: public, provider: apiKey, operations: [create, read, update, delete] }
+    ]
+  )
+}
