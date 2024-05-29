@@ -11,20 +11,20 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  late TextEditingController _emailController;
+  late TextEditingController _phoneNumberController;
   late TextEditingController _passwordController;
 
   @override
   void initState() {
     super.initState();
-    _emailController = TextEditingController();
+    _phoneNumberController = TextEditingController();
     _passwordController = TextEditingController();
   }
 
-  Future<void> _login(String email, String password) async {
+  Future<void> _login(String phoneNumber, String password) async {
     try {
       final signInResult = await Amplify.Auth.signIn(
-        username: email,
+        username: phoneNumber,
         password: password,
       );
 
@@ -82,8 +82,9 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextField(
-                controller: _emailController,
-                decoration: const InputDecoration(border: OutlineInputBorder(), labelText: 'Email'),
+                controller: _phoneNumberController,
+                decoration:
+                    const InputDecoration(border: OutlineInputBorder(), labelText: 'Phone number'),
               ),
               const SizedBox(
                 height: 10,
@@ -96,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               ElevatedButton(
                   onPressed: () async =>
-                      await _login(_emailController.text, _passwordController.text),
+                      await _login(_phoneNumberController.text, _passwordController.text),
                   child: const Text("Log in")),
             ],
           ),

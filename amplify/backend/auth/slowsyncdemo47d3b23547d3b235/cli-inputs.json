@@ -1,12 +1,12 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "slowsyncdemo21fef8ee_identitypool_21fef8ee",
+    "identityPoolName": "slowsyncdemo47d3b235_identitypool_47d3b235",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "slowsy21fef8ee",
-    "userPoolName": "slowsyncdemo21fef8ee_userpool_21fef8ee",
+    "resourceNameTruncated": "slowsy47d3b235",
+    "userPoolName": "slowsyncdemo47d3b235_userpool_47d3b235",
     "autoVerifiedAttributes": [
-      "email"
+      "phone_number"
     ],
     "mfaConfiguration": "OFF",
     "mfaTypes": [
@@ -20,26 +20,26 @@
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [],
     "requiredAttributes": [
-      "email"
+      "phone_number"
     ],
     "aliasAttributes": [],
     "userpoolClientGenerateSecret": false,
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [
-      "email"
+      "phone_number"
     ],
     "userpoolClientReadAttributes": [
-      "email"
+      "phone_number"
     ],
-    "userpoolClientLambdaRole": "slowsy21fef8ee_userpoolclient_lambda_role",
-    "userpoolClientSetAttributes": false,
-    "sharedId": "21fef8ee",
-    "resourceName": "slowsyncdemo21fef8ee21fef8ee",
+    "userpoolClientLambdaRole": "slowsy47d3b235_userpoolclient_lambda_role",
+    "userpoolClientSetAttributes": true,
+    "sharedId": "47d3b235",
+    "resourceName": "slowsyncdemo47d3b23547d3b235",
     "authSelections": "identityPoolAndUserPool",
     "useDefault": "manual",
     "thirdPartyAuth": false,
     "usernameAttributes": [
-      "email"
+      "phone_number"
     ],
     "userPoolGroups": false,
     "adminQueries": false,
@@ -48,6 +48,25 @@
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
-    "useEnabledMfas": true
+    "useEnabledMfas": true,
+    "authRoleArn": {
+      "Fn::GetAtt": [
+        "AuthRole",
+        "Arn"
+      ]
+    },
+    "unauthRoleArn": {
+      "Fn::GetAtt": [
+        "UnauthRole",
+        "Arn"
+      ]
+    },
+    "breakCircularDependency": true,
+    "dependsOn": [],
+    "authProviders": [],
+    "parentStack": {
+      "Ref": "AWS::StackId"
+    },
+    "permissions": []
   }
 }

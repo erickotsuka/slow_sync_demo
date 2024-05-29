@@ -2,9 +2,10 @@
   "AppSyncApiName": "slowsyncdemo",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
   "DynamoDBEnableServerSideEncryption": false,
+  "AuthModeLastUpdated": "2024-05-29T21:38:24.686Z",
   "AuthCognitoUserPoolId": {
     "Fn::GetAtt": [
-      "authslowsyncdemo21fef8ee21fef8ee",
+      "authslowsyncdemo47d3b23547d3b235",
       "Outputs.UserPoolId"
     ]
   }

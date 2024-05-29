@@ -12,11 +12,11 @@
       "AmplifyAppId": "dgp9klm0u3w2e"
     },
     "categories": {
-      "auth": {
-        "slowsyncdemo21fef8ee21fef8ee": {}
-      },
       "api": {
         "slowsyncdemo": {}
+      },
+      "auth": {
+        "slowsyncdemo47d3b23547d3b235": {}
       }
     }
   }
