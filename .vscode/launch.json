@@ -1,0 +1,10 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "slow_sync_demo",
+            "request": "launch",
+            "type": "dart"
+        }
+    ]
+}
