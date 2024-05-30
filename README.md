@@ -346,3 +346,107 @@ const amplifyconfig = '''{
     }
 }''';
 ```
+
+# Create new environment based on updated environment
+
+1. `amplify env add <env name>`
+2. `amplify push` 
+3. In AWS Console, create a Cognito user, marking the phone number as verified
+4. Confirm the user using AWS CLI:
+    1. If your AWS CLI credentials are not configured, do so with `aws configure`
+    2. Run the following command, replacing the values with the ones from your environment: `aws cognito-idp admin-set-user-password --user-pool-id <YOUR_USER_POOL_ID> --username <COGNITO_USER_NAME (not email)> --password <COGNITO_USER_PASSWORD> --permanent`
+5. Create a user in AWS Console using AWS AppSync, passing the Cognito user name (not email) for the `id` field, any value for the `name`, and again the Cognito user name for the `owner`.
+6. Run the app in Android Emulator or in an Android device in debug mode.
+7. Enter the credentials for the user created in Cognito.
+8. Observe what is printed in the console.
+
+The login was tested 3 times for the same user. After each login, the app and the debugging session were closed, and the app's storage was cleared on Android Emulator. These were the results for the elapsed time for the query:
+
+1. 3651 ms
+2. 2521 ms
+3. 2743 ms
+
+## Updated amplifyconfiguration.dart omitting sensitive information
+```dart
+const amplifyconfig = '''{
+    "UserAgent": "aws-amplify-cli/2.0",
+    "Version": "1.0",
+    "api": {
+        "plugins": {
+            "awsAPIPlugin": {
+                "slowsyncdemo": {
+                    "endpointType": "GraphQL",
+                    "endpoint": "https://*****.appsync-api.us-east-2.amazonaws.com/graphql",
+                    "region": "us-east-2",
+                    "authorizationType": "AMAZON_COGNITO_USER_POOLS",
+                    "apiKey": "*****"
+                }
+            }
+        }
+    },
+    "auth": {
+        "plugins": {
+            "awsCognitoAuthPlugin": {
+                "UserAgent": "aws-amplify-cli/0.1.0",
+                "Version": "0.1.0",
+                "IdentityManager": {
+                    "Default": {}
+                },
+                "AppSync": {
+                    "Default": {
+                        "ApiUrl": "https://*****.appsync-api.us-east-2.amazonaws.com/graphql",
+                        "Region": "us-east-2",
+                        "AuthMode": "AMAZON_COGNITO_USER_POOLS",
+                        "ClientDatabasePrefix": "slowsyncdemo_AMAZON_COGNITO_USER_POOLS"
+                    },
+                    "slowsyncdemo_API_KEY": {
+                        "ApiUrl": "https://*****.appsync-api.us-east-2.amazonaws.com/graphql",
+                        "Region": "us-east-2",
+                        "AuthMode": "API_KEY",
+                        "ApiKey": "*****",
+                        "ClientDatabasePrefix": "slowsyncdemo_API_KEY"
+                    }
+                },
+                "CredentialsProvider": {
+                    "CognitoIdentity": {
+                        "Default": {
+                            "PoolId": "us-east-2:*****",
+                            "Region": "us-east-2"
+                        }
+                    }
+                },
+                "CognitoUserPool": {
+                    "Default": {
+                        "PoolId": "us-east-2_*****",
+                        "AppClientId": "*****",
+                        "Region": "us-east-2"
+                    }
+                },
+                "Auth": {
+                    "Default": {
+                        "authenticationFlowType": "USER_SRP_AUTH",
+                        "mfaConfiguration": "OFF",
+                        "mfaTypes": [
+                            "SMS"
+                        ],
+                        "passwordProtectionSettings": {
+                            "passwordPolicyMinLength": 8,
+                            "passwordPolicyCharacters": []
+                        },
+                        "signupAttributes": [
+                            "PHONE_NUMBER"
+                        ],
+                        "socialProviders": [],
+                        "usernameAttributes": [
+                            "PHONE_NUMBER"
+                        ],
+                        "verificationMechanisms": [
+                            "PHONE_NUMBER"
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}''';
+```

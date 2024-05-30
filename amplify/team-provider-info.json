@@ -19,5 +19,26 @@
         "slowsyncdemo47d3b23547d3b235": {}
       }
     }
+  },
+  "devcopy": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-slowsyncdemo-devcopy-3ad23-authRole",
+      "UnauthRoleArn": "arn:aws:iam::150246323823:role/amplify-slowsyncdemo-devcopy-3ad23-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::150246323823:role/amplify-slowsyncdemo-devcopy-3ad23-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-slowsyncdemo-devcopy-3ad23-deployment",
+      "UnauthRoleName": "amplify-slowsyncdemo-devcopy-3ad23-unauthRole",
+      "StackName": "amplify-slowsyncdemo-devcopy-3ad23",
+      "StackId": "arn:aws:cloudformation:us-east-2:150246323823:stack/amplify-slowsyncdemo-devcopy-3ad23/0cfb3860-1e8c-11ef-aa98-02dee4d6436f",
+      "AmplifyAppId": "dgp9klm0u3w2e"
+    },
+    "categories": {
+      "auth": {
+        "slowsyncdemo47d3b23547d3b235": {}
+      },
+      "api": {
+        "slowsyncdemo": {}
+      }
+    }
   }
 }
