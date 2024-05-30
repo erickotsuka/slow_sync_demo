@@ -59,7 +59,7 @@ API key configuration
     1. If your AWS CLI credentials are not configured, do so with `aws configure`
     2. Run the following command, replacing the values with the ones from your environment: `aws cognito-idp admin-set-user-password --user-pool-id <YOUR_USER_POOL_ID> --username <COGNITO_USER_NAME (not email)> --password <COGNITO_USER_PASSWORD> --permanent`
 
-9. Create a user in AWS Console using AWS AppSync, passing the Cognito user name (not email) for the `id` field, any value for the `name`, and again the Cognito user name for the `owner`.
+9. Create an user in AWS Console using AWS AppSync using API Key auth, passing the Cognito user name (not phone number) for the `id` field, any value for the `name`, and again the Cognito user name for the `owner`.
 
 10. Run the app in Android Emulator or in an Android device in debug mode.
 
@@ -251,7 +251,7 @@ API key configuration
 12. Confirm the user using AWS CLI:
     1. If your AWS CLI credentials are not configured, do so with `aws configure`
     2. Run the following command, replacing the values with the ones from your environment: `aws cognito-idp admin-set-user-password --user-pool-id <YOUR_USER_POOL_ID> --username <COGNITO_USER_NAME (not email)> --password <COGNITO_USER_PASSWORD> --permanent`
-13. Create a user in AWS Console using AWS AppSync, passing the Cognito user name (not email) for the `id` field, any value for the `name`, and again the Cognito user name for the `owner`.
+13. Create an user in AWS Console using AWS AppSync using API Key auth, passing the Cognito user name (not phone number) for the `id` field, any value for the `name`, and again the Cognito user name for the `owner`.
 14. Run the app in Android Emulator or in an Android device in debug mode.
 15. Enter the credentials for the user created in Cognito.
 16. Observe what is printed in the console.
